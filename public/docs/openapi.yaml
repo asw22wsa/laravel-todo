@@ -1,0 +1,300 @@
+openapi: 3.0.3
+info:
+  title: 'siu Todo App'
+  description: '안녕하세요 여기는 시우의 todo 앱 입니다. v1 '
+  version: 1.0.0
+servers:
+  -
+    url: 'http://api.test'
+paths:
+  /api/v1/todos:
+    get:
+      summary: 'Display a listing of the resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 53
+                      title: 'hello my name is siu'
+                      content: goodbye
+                      deadline: '2020-10-04'
+                      isDone: 1
+                      updated_at: '2d분 전에 수정됨'
+                    -
+                      id: 52
+                      title: 'hello my name is siu'
+                      content: goodbye
+                      deadline: '마감 기간이 정해지지 않았습니다.'
+                      isDone: 1
+                      updated_at: '2d분 전에 수정됨'
+                    -
+                      id: 51
+                      title: 'hello my name is siu'
+                      content: goodbye
+                      deadline: '마감 기간이 정해지지 않았습니다.'
+                      isDone: 1
+                      updated_at: '2d분 전에 수정됨'
+                    -
+                      id: 9
+                      title: 'Fugiat et id.'
+                      content: 'In tempore eius numquam ex enim. In quibusdam nam ut optio. Est ex neque et qui nam.'
+                      deadline: '마감 기간이 정해지지 않았습니다.'
+                      isDone: 0
+                      updated_at: '2d분 전에 수정됨'
+                    -
+                      id: 10
+                      title: Consequatur.
+                      content: 'Quos quaerat sint unde id modi. Fuga ea esse cum eos corporis cum.'
+                      deadline: '마감 기간이 정해지지 않았습니다.'
+                      isDone: 0
+                      updated_at: '2d분 전에 수정됨'
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 11
+                    path: 'http://api.test/api/v1/todos'
+                    per_page: 5
+                    to: 5
+                    total: 52
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 53
+                        title: 'hello my name is siu'
+                        content: goodbye
+                        deadline: '2020-10-04'
+                        isDone: 1
+                        updated_at: '2d분 전에 수정됨'
+                      -
+                        id: 52
+                        title: 'hello my name is siu'
+                        content: goodbye
+                        deadline: '마감 기간이 정해지지 않았습니다.'
+                        isDone: 1
+                        updated_at: '2d분 전에 수정됨'
+                      -
+                        id: 51
+                        title: 'hello my name is siu'
+                        content: goodbye
+                        deadline: '마감 기간이 정해지지 않았습니다.'
+                        isDone: 1
+                        updated_at: '2d분 전에 수정됨'
+                      -
+                        id: 9
+                        title: 'Fugiat et id.'
+                        content: 'In tempore eius numquam ex enim. In quibusdam nam ut optio. Est ex neque et qui nam.'
+                        deadline: '마감 기간이 정해지지 않았습니다.'
+                        isDone: 0
+                        updated_at: '2d분 전에 수정됨'
+                      -
+                        id: 10
+                        title: Consequatur.
+                        content: 'Quos quaerat sint unde id modi. Fuga ea esse cum eos corporis cum.'
+                        deadline: '마감 기간이 정해지지 않았습니다.'
+                        isDone: 0
+                        updated_at: '2d분 전에 수정됨'
+                    items:
+                      type: object
+                  meta:
+                    type: object
+                    example:
+                      current_page: 1
+                      from: 1
+                      last_page: 11
+                      path: 'http://api.test/api/v1/todos'
+                      per_page: 5
+                      to: 5
+                      total: 52
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: rwyeytrzwksmgmsiztuvuhthxqflvehbstqzmu
+                content:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: wvcahcrexqccvswpcqnzychzuxqnysieaiiucghpkrzbgndeupxyfsqdcitbnpijkszjbxbuthzaqktwoumkmgzszigjowocgwydqxzknshhvgfbtyxaozhbfpxsraackollhlwv
+                deadline:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2021-09-11T11:01:47'
+                isDone:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - title
+                - isDone
+      security: []
+  '/api/v1/todos/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: '해당 할일을 찾을수 없습니다.'
+                properties:
+                  message:
+                    type: string
+                    example: '해당 할일을 찾을수 없습니다.'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: nbvobqiljiscdcmgytltvankpzdzqkmod
+                content:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: klitheyvjgbruugnvnydouoxuocdptiapdwgbwfoqhpczrpsvjpknmjwpomiimwyuevcbjxaoaflthpacxbuslroixaupmdlkdelygroo
+                deadline:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2021-09-11T11:01:47'
+                isDone:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - title
+                - isDone
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the todo.'
+        example: 8
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Endpoints
+    description: ''
