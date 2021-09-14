@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\TodoController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +22,8 @@ use App\Http\Controllers\API\TodoController;
 
 // prefix로 버전 붙이기
 Route::prefix(env('APP_VERSION').'/')->group(function(){
+
+    Route::get('todos/search',SearchController::class)->name('todos.search');
+
     Route::apiResource('todos',TodoController::class);
 });
