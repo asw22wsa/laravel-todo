@@ -212,7 +212,7 @@ var routes = [{
   name: 'index',
   component: _components_index_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
-  path: 'test',
+  path: '/test',
   name: 'test',
   component: function component() {
     return __webpack_require__.e(/*! import() | test */ "test").then(__webpack_require__.bind(__webpack_require__, /*! ./components/test.vue */ "./resources/js/components/test.vue"));
