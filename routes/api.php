@@ -27,3 +27,5 @@ Route::prefix(env('APP_VERSION').'/')->group(function(){
 
     Route::apiResource('todos',TodoController::class);
 });
+
+Auth::routes();
